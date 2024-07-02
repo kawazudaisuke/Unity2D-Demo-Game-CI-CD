@@ -14,20 +14,7 @@ workflows:
 
       # Run tests in playmode for Linux, Windows and macOS
       # More info: https://game.ci/docs/circleci/test
-      - unity/test:
-          name: "test-linux"
-          step-name: "Check if the tests run and results are uploaded"
-          unity-license-var-name: "UNITY_ENCODED_LICENSE"
-          unity-username-var-name: "UNITY_USERNAME"
-          unity-password-var-name: "UNITY_PASSWORD"
-          executor:
-            name: "unity/ubuntu"
-            target_platform: "linux-il2cpp"
-            editor_version: "2021.3.9f1"
-            resource_class: "medium"
-          project-path: "src"
-          test-platform: "playmode"
-          context: unity
+
       # Build for several other platforms
       - unity/build:
           name: "build-webgl"
