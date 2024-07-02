@@ -35,7 +35,6 @@ workflows:
           compress: false
           context: unity
           post-steps:
-          build:
             working_directory: /tmp
             steps:
             - run:
