@@ -34,12 +34,13 @@ workflows:
           # the CircleCI web app by going in the "Artifacts" tab.
           compress: false
           context: unity
-      # - run:
-      #     name: Save artifacts
-      #     command: |
-      #       mkdir -p ~/circleci-artifacts
-      #       cp ./build/output.zip ~/circleci-artifacts/output.zip
-      # - run:
-      #     name: Transfer artifacts to local machine
-      #     command: |
-      #       scp -o StrictHostKeyChecking=no ~/circleci-artifacts/output.zip daipc@local-machine:/home/daipc/Desktop
+      steps:
+        - run:
+            name: Save artifacts
+            command: |
+              mkdir -p ~/circleci-artifacts
+              cp ./build/output.zip ~/circleci-artifacts/output.zip
+        - run:
+            name: Transfer artifacts to local machine
+            command: |
+              scp -o StrictHostKeyChecking=no ~/circleci-artifacts/output.zip daipc@local-machine:/home/daipc/Desktop
