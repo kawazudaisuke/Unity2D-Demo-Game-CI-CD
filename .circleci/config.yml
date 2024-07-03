@@ -34,9 +34,9 @@ workflows:
           # the CircleCI web app by going in the "Artifacts" tab.
           compress: false
           context: unity
-      upload-artifacts:      
-        requires: 
-          - unity/build
+      # upload-artifacts:      
+      #   requires: 
+      #     - unity/build
           steps:
             run:
               name: Save artifacts
