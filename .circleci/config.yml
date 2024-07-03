@@ -37,18 +37,17 @@ workflows:
       upload-artifacts:      
         requires: 
           - build-webgl
-
-jobs:     
-  upload-artifacts:
-    docker:
-      - image: cimg/base:stable 
-    steps:
-      - run:
-          name: Save artifacts
-          command: |
-            mkdir -p ~/circleci-artifacts
-            cp ./build/output.zip ~/circleci-artifacts/output.zip
-      - run:
-          name: Transfer artifacts to local machine
-          command: |
-            scp -o StrictHostKeyChecking=no ~/circleci-artifacts/output.zip daipc@local-machine:/home/daipc/Desktop
+    jobs:     
+      upload-artifacts:
+        docker:
+          - image: cimg/base:stable 
+        steps:
+          - run:
+              name: Save artifacts
+              command: |
+                mkdir -p ~/circleci-artifacts
+                cp ./build/output.zip ~/circleci-artifacts/output.zip
+          - run:
+              name: Transfer artifacts to local machine
+              command: |
+                scp -o StrictHostKeyChecking=no ~/circleci-artifacts/output.zip daipc@local-machine:/home/daipc/Desktop
