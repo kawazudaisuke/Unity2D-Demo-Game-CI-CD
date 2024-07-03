@@ -34,8 +34,6 @@ workflows:
           # the CircleCI web app by going in the "Artifacts" tab.
           compress: false
           context: unity
-      - upload-file:
-          name: "update-file"
       - run:
           name: Save artifacts
           command: |
