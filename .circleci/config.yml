@@ -4,7 +4,7 @@ orbs:
   unity: game-ci/unity@1.4.0
 
 workflows:
-  #build-unity-project:  
+  build-unity-project:  
     jobs:
       # Create the Unity activation license file
       # You only need this if you are using the Personal license
@@ -39,7 +39,7 @@ workflows:
           command: |
             mkdir -p ~/circleci-artifacts
             cp ./build/output.zip ~/circleci-artifacts/output.zip
-      - run:
-          name: Transfer artifacts to local machine
-          command: |
-            scp -o StrictHostKeyChecking=no ~/circleci-artifacts/output.zip daipc@local-machine:/home/daipc/Desktop
+      # - run:
+      #     name: Transfer artifacts to local machine
+      #     command: |
+      #       scp -o StrictHostKeyChecking=no ~/circleci-artifacts/output.zip daipc@local-machine:/home/daipc/Desktop
